@@ -68,6 +68,20 @@ public class Program1 extends Application {
                 }           
         });
         
+        
+        btn4.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                                BMIPage bmi=new BMIPage();
+                    try {
+                        bmi.start(primaryStage);
+                    } catch (Exception ex) {
+                        Logger.getLogger(Program1.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }           
+        });
+        
         StackPane root = new StackPane();
         
         //root.getChildren().add(btn);
