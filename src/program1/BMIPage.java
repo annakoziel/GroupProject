@@ -20,7 +20,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -85,7 +84,7 @@ public class BMIPage extends Application {
         hBoxPane.setAlignment(Pos.BOTTOM_CENTER);
         hBoxPane.getChildren().add(btn);
         grid.add(hBoxPane, 1, 4);
-
+        
         btn.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
