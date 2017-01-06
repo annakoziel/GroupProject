@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -25,11 +26,18 @@ public class BMIResultWoman extends Application {
     public double bmi;
     public String wynik;
 
+    /* public void giveResult(double height, double weight) {*/
+    public BMIResultWoman(double height, double weight) {
+        this.height = height;
+        this.weight = weight;
+        Woman kobieta = new Woman(height, weight);
+        bmi = kobieta.calculateBMI();
+        wynik = kobieta.BMIProduct();
+    }
+
+    //}
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Woman kobieta = new Woman(height, weight);
-        kobieta.BMIProduct();
-
         primaryStage.setTitle("Wynik BMI");
         GridPane grid = new GridPane();
         grid.setAlignment(Pos.CENTER);
@@ -37,7 +45,7 @@ public class BMIResultWoman extends Application {
         grid.setVgap(10);
         grid.setPadding(new Insets(25, 25, 25, 25));
 
-        Scene first = new Scene(grid, 300, 250);
+        Scene first = new Scene(grid, 600, 400);
 
         primaryStage.setScene(first);
         primaryStage.show();
@@ -46,7 +54,8 @@ public class BMIResultWoman extends Application {
         grid.add(bmiLabel, 0, 1);
         Text bmiField = new Text(Double.toString(bmi));
         grid.add(bmiField, 1, 1);
-        Text result = new Text(wynik);
+        Label result = new Label(wynik);
+        result.setWrapText(true);
         grid.add(result, 0, 2);
     }
 

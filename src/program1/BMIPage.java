@@ -32,8 +32,10 @@ public class BMIPage extends Application {
 
     private Scene scene;
     private GridPane grid;
-    private Double height;
-    private Double weight;
+    private double height;
+    private double weight;
+    private String wynik;
+    private double bmi;
 
     @Override
     public void start(final Stage primaryStage) throws Exception {
@@ -64,10 +66,6 @@ public class BMIPage extends Application {
         grid.add(wzrostLabel, 0, 2);
 
         final TextField wzrostField = new TextField();
-        try {
-            height = Double.parseDouble(wzrostField.getText());
-        } catch (Exception NullPointerException) {
-        }
         grid.add(wzrostField, 1, 2);//(dziecko, kolumna, wiersz)
 
         Label cmLabel = new Label("cm");
@@ -76,11 +74,7 @@ public class BMIPage extends Application {
         final Label wagaLabel = new Label("Waga:");
         grid.add(wagaLabel, 0, 3);
 
-        TextField wagaField = new TextField();
-        try {
-            weight = Double.parseDouble(wagaField.getText());
-        } catch (Exception NullPointerException) {
-        }
+        final TextField wagaField = new TextField();
         grid.add(wagaField, 1, 3);//(dziecko, kolumna, wiersz)
 
         Label kgLabel = new Label("kg");
@@ -96,15 +90,24 @@ public class BMIPage extends Application {
 
             @Override
             public void handle(ActionEvent event) {
+                try {
+                    height = Double.parseDouble(wzrostField.getText());
+                } catch (Exception NullPointerException) {
+                }
+                try {
+                    weight = Double.parseDouble(wagaField.getText());
+                } catch (Exception NullPointerException) {
+                }
                 if (choiceSexBox.getValue().equals("Kobieta")) {
-                    BMIResultWoman bmiResult = new BMIResultWoman();
+
+                    BMIResultWoman bmiResult = new BMIResultWoman(height, weight);
                     try {
                         bmiResult.start(primaryStage);
                     } catch (Exception ex) {
                         Logger.getLogger(Program1.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 } else {
-                    BMIResultMan bmiResult = new BMIResultMan();
+                    BMIResultMan bmiResult = new BMIResultMan(height,weight);
                     try {
                         bmiResult.start(primaryStage);
                     } catch (Exception ex) {

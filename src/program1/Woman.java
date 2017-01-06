@@ -20,12 +20,11 @@ public class Woman extends User implements BMIProduct {
         super(height, weight);
         Sex sex = FEMALE;
     }
-    
     @Override
-    public void BMIProduct() {
+    public String BMIProduct() {
         bmi = calculateBMI();
         if (bmi < 17) {
-            wynik = "Twoje BMI określać może stan, który jest niebezpieczny dla zdrowia. "
+            return wynik = "Twoje BMI określać może stan, który jest niebezpieczny dla zdrowia. "
                     + "Jedynie osoby wysokie o atletycznej budowie ciała mogą być tutaj nieco spokojniejsze."
                     + "Wychudzenie może skutkować wieloma chorobami,ale może też być przez choroby "
                     + "spowodowane. Oczywiście, najbardziej znanym przykładem jest tutaj anoreksja, "
@@ -37,21 +36,21 @@ public class Woman extends User implements BMIProduct {
                     + "Dobra, wartościowa dieta pomoże też poprawić Twoje samopoczucie i wygląd. "
                     + "Zalecamy zatem pracę nad sobą. ";
         } else if (bmi >= 17 && bmi < 18.5) {
-            wynik = "Masz niedowagę. Jest wiele czynników i chorób, które mogą skutkować utratą masy ciała, "
+            return wynik = "Masz niedowagę. Jest wiele czynników i chorób, które mogą skutkować utratą masy ciała, "
                     + "część z nich jest bardzo poważna (gruźlica, AIDS, pasożyty czy nowotwory). "
                     + "Warto zatem zasięgnąć rady lekarza."
                     + "Nawet małe zmiany w sposobie i nawykach żywieniowych mogą poprawić stan zdrowia. "
                     + "Dobra, wartościowa dieta również pomoże poprawić Twoje samopoczucie i będzie miała wpływ na wygląd. "
                     + "Zalecamy zatem pracę nad swoją wagą i kondycją fizyczną, aby BMI wzrosło powyżej bezpiecznego poziomu.";
         } else if (bmi >= 18.5 && bmi < 25) {
-            wynik = "Wynik ten to pożądany i prawidłowy stan. Oczywiście, nawet w wypadku prawidłowego wyniku zawsze "
+            return wynik = "Wynik ten to pożądany i prawidłowy stan. Oczywiście, nawet w wypadku prawidłowego wyniku zawsze "
                     + "warto dbać o zdrowie. Dobrym pomysłem może być zwiększenie aktywności fizycznej, "
                     + "prowadzące do poprawy wyglądu sylwetki.Jak wiadomo, dobrze dobrana dieta to nie tylko rozwiązanie dla "
                     + "osób chcących poprawić swoja wagę, ale również dla tych, którzy (jak w tym przypadku) mają ją na "
                     + "dobrym poziomie. Odpowiednie nawyki żywieniowe wpływają na zdrowie, wygląd skóry oraz samopoczucie. "
                     + "Zachęcamy do zdrowego odżywiania.";
         } else if (bmi > 25 && bmi <= 30) {
-            wynik = " Nadwaga to popularna cecha w społeczności, gdzie nie ma problemów z dostępem do żywności, "
+            return wynik = " Nadwaga to popularna cecha w społeczności, gdzie nie ma problemów z dostępem do żywności, "
                     + "ale mimo tego należy z nią walczyć. Najlepszym sposobem na zmniejszenie BMI jest konsultacja ze "
                     + "specjalistą i wykonanie podstawowych badań. Nie jest to duży wysiłek, a może zaoszczędzić wiele "
                     + "kłopotów, ponieważ nieleczona nadwaga skutkuje często dużą ilością powikłań "
@@ -63,7 +62,7 @@ public class Woman extends User implements BMIProduct {
                     + "propozycje treningowe. Dzięki temu realne jest w stosunkowo krótkim czasie poprawienie swojego BMI "
                     + "i obniżenie go do zadowalającego wyniku.";
         } else if (bmi > 30 && bmi <= 35) {
-            wynik = "Otyłość I stopnia. Stan ten wymaga Twojej niezwłocznej reakcji. Otyłość jest popularną chorobą w "
+            return wynik = "Otyłość I stopnia. Stan ten wymaga Twojej niezwłocznej reakcji. Otyłość jest popularną chorobą w "
                     + "społeczności, gdzie nie ma problemów z dostępem do żywności. Mimo tego, zaniedbana jest bardzo "
                     + "groźna i może spowodować wiele chorób czy powikłań, jak na przykład: cukrzyca, miażdżyca, "
                     + "schorzenia wątroby, nadciśnienie, choroby stawów, nowotwory czy choroba wieńcowa serca. "
@@ -74,21 +73,22 @@ public class Woman extends User implements BMIProduct {
                     + "Zachęcamy do konsultacji w tym zakresie. Odpowiednia pomoc daje dużą dawkę motywacji i zwraca się w "
                     + "bezcenny sposób – poprawia zdrowie, które jest tu najważniejsze.";
         } else if (bmi > 35 && bmi <= 40) {
-            wynik = "Otyłość II stopnia. Potrzebujesz wykwalifikowanej pomocy lekarskiej i dietetycznej bo tak wysokie BMI "
+            return wynik = "Otyłość II stopnia. Potrzebujesz wykwalifikowanej pomocy lekarskiej i dietetycznej bo tak wysokie BMI "
                     + "jest już niebezpieczne. Nie zwlekaj dłużej i podejmij walkę z tą chorobą teraz. W pełni Twój stan zdrowia i "
                     + "tkankę tłuszczową zbadać może tylko lekarz, do konsultacji z którym zachęcamy. Tak słaby wynik (trzeba to "
                     + "jasno powiedzieć) może mieć nie tylko żywieniowe ale i chorobowe podłoże, co trzeba wykluczyć w badaniach."
                     + "Zmiana nawyków żywieniowych w tymprzypadku jest nieunikniona. Razem z odpowiednio dobranymi ćwiczeniami "
                     + "fizycznymi, poprawisz swoje zdrowie, wygląd oraz samopoczucie – do czego z całego serca motywujemy i zachęcamy.";
         } else if (bmi > 40) {
-            wynik = "III stopień otyłości.  Zgłoś się niezwłocznie do swojego lekarza! Zadbaj natychmiast o swoje zdrowie! "
+            return wynik = "III stopień otyłości.  Zgłoś się niezwłocznie do swojego lekarza! Zadbaj natychmiast o swoje zdrowie! "
                     + "Z otyłości można się wyleczyć! Znajdujesz się w grupie wysokiego ryzyka rozwoju takich powikłań otyłości "
                     + "jak: nadciśnienie tętnicze, cukrzyca, choroba niedokrwienna serca.  Najczęstszą przyczyną otyłości jest "
                     + "tzw. otyłość prosta, alimentacyjna powstająca w wyniku nadmiaru dostarczanych w pokarmach kalorii w "
                     + "stosunku do ich wydatkowania. Zmiana nawyków żywieniowych w Twoim przypadku jest nieunikniona. Zachęcamy "
                     + "do skorzystania z pomocy specjalistów dietetyków, których wiedza umożliwi ułożenie diety wg aktualnych "
                     + "potrzeb Twojego organizmu.";
-        }
+        } else 
+            return "Błąd";
         
     }
     

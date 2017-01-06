@@ -1,5 +1,5 @@
 package program1;
 
 interface BMIProduct{
-   public void BMIProduct();
+   public String BMIProduct();
 }
